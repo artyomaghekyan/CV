@@ -1,0 +1,72 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+    <div class="container px-5 my-5">
+        <form method="post" action="">
+            {% csrf_token%}
+            <div class="form-floating mb-3">
+                <input class="form-control" id="name" name="name" type="text" placeholder="name" data-sb-validations="required" />
+                <label for="name">name</label>
+                <div class="invalid-feedback" data-sb-feedback="name:required">name is required.</div>
+            </div>
+            <div class="form-floating mb-3">
+                <input class="form-control" id="email" name="email" type="email" placeholder="Email Address" data-sb-validations="required,email" />
+                <label for="emailAddress">email</label>
+                <div class="invalid-feedback" data-sb-feedback="emailAddress:required">Email Address is required.</div>
+            </div>
+            <div class="form-floating mb-3">
+                <input class="form-control" id="phone" name="phone" type="text" placeholder="phone" data-sb-validations="required" />
+                <label for="phone">phone</label>
+                <div class="invalid-feedback" data-sb-feedback="phone:required">phone is required.</div>
+            </div>
+            <div class="form-floating mb-3">
+                <textarea class="form-control" id="summary" name="summary" type="text" placeholder="summary" style="height: 10rem;" data-sb-validations="required"></textarea>
+                <label for="summary">summary</label>
+                <div class="invalid-feedback" data-sb-feedback="summary:required">summary is required.</div>
+            </div>
+            <div class="form-floating mb-3">
+                <input class="form-control" id="degree" name="degree" type="text" placeholder="degree" data-sb-validations="required" />
+                <label for="degree">degree</label>
+                <div class="invalid-feedback" data-sb-feedback="degree:required">degree is required.</div>
+            </div>
+            <div class="form-floating mb-3">
+                <input class="form-control" id="school" name="school" type="text" placeholder="school" data-sb-validations="required" />
+                <label for="school">school</label>
+                <div class="invalid-feedback" data-sb-feedback="school:required">school is required.</div>
+            </div>
+            <div class="form-floating mb-3">
+                <input class="form-control" id="university" name="university" type="text" placeholder="university" data-sb-validations="required" />
+                <label for="university">university</label>
+                <div class="invalid-feedback" data-sb-feedback="university:required">university is required.</div>
+            </div>
+            <div class="form-floating mb-3">
+                <textarea class="form-control" id="experience" name="experience" type="text" placeholder="experience" style="height: 10rem;" data-sb-validations="required"></textarea>
+                <label for="experience">experience</label>
+                <div class="invalid-feedback" data-sb-feedback="experience:required">experience is required.</div>
+            </div>
+            <div class="form-floating mb-3">
+                <textarea class="form-control" id="skills" name="skills" type="text" placeholder="skills" style="height: 10rem;" data-sb-validations="required"></textarea>
+                <label for="skills">skills</label>
+                <div class="invalid-feedback" data-sb-feedback="skills:required">skills is required.</div>
+            </div>
+                {% if request.method == 'GET' %}
+                <button type="submit" class="btn btn-success" data-mdb-ripple-color="#ffffff"> Submit </button>
+                {% endif%}
+
+                {% if request.method == 'POST' %}
+                    <a href="{% url 'cv' profile.id %}" class="btn btn-dark" data-mdb-ripple-color="#ffffff"> Download CV </a>
+                {% endif %}
+        </form>     
+    </div>  
+            
+        
+</body>
+</html>
